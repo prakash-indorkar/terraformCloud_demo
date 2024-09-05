@@ -9,7 +9,10 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "146c07c5-5543-41fb-8f52-c697768ac9da"
+  subscription_id = terraform.workspace.subscription_id
+  client_id       = terraform.workspace.client_id
+  client_secret  = terraform.workspace.client_secret
+  tenant_id       = terraform.workspace.tenant_id
 }
 
 resource "azurerm_resource_group" "this" {
